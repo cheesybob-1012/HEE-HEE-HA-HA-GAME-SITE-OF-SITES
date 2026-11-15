@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+      html {
+        scrollbar-width:none;
+      }
+      html::-webkit-scrollbar {
+        display:none;
+      }
       body {
         font-family: 'Inter', sans-serif;
       }
@@ -53,7 +59,7 @@
      .letter-section summary {
         display:block;
         box-sizing:border-box;
-        width:calc(100% + 88px);
+        width:100%;
         background-color:#470000;
         margin-right:auto;
         font-weight:bold;
@@ -61,6 +67,8 @@
         cursor:pointer;
         list-style:none;
         text-align:left;
+        transform-origin:left center;
+        transition:color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
       }
      .letter-section summary::-webkit-details-marker {
         display:none;
@@ -95,7 +103,7 @@
       }
      .letter-section button:hover {
         color:white;
-        transform:scale(1.15);
+        transform:scale(1.25);
       }
      .site-copy-button {
         margin:8px;
@@ -172,12 +180,20 @@
         position:fixed;
         top:8px;
         left:8px;
+        z-index:10;
         display:flex;
         flex-direction:column;
         gap:4px;
         width:70px;
         max-height:calc(100vh - 16px);
+        padding:8px 0;
+        box-sizing:border-box;
+        background-color:black;
         overflow-y:auto;
+        scrollbar-width:none;
+      }
+     .sidebar::-webkit-scrollbar {
+        display:none;
       }
      .sidebar a {
         color:darkgray;
@@ -188,16 +204,19 @@
         text-align:left;
         font-size:15px;
         padding:4px;
-        transition:transform 0.2s ease;
+        transition:color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         margin-left:6px;
         margin-right:6px;
       }
      .sidebar a:hover, .sidebar a:active {
-        transform:scale(1.35);
+        transform:none;
         color:white;
+        background-color:#780000;
+        border-color:#ff5555;
+        box-shadow:inset 0 0 12px rgba(255, 0, 0, 0.65);
       }
      main {
-        margin-left:88px;
+        margin-left:78px;
       }
      h1:hover, h1:active {
        transform: scale(1.15);
@@ -208,8 +227,10 @@
        color:white;
       }
      .letter-section summary:hover, .letter-section summary:active {
-       transform: scale(1.08);
        color:white;
+       background-color:#780000;
+       border-color:#ff5555;
+       box-shadow:inset 0 0 12px rgba(255, 0, 0, 0.65);
       }
      a:hover, a:active {
        transform: scale(1.25);
